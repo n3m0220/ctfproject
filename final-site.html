@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You made it!</title>
+    <style>
+        body {
+            background: repeating-linear-gradient(45deg, red, yellow 10%, blue 20%);
+            font-family: Comic Sans MS, cursive;
+            text-align: center;
+            animation: spin 5s linear infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .blink {
+            animation: blink-animation 0.5s infinite alternate;
+        }
+        @keyframes blink-animation {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        .moving-text {
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            animation: move 3s linear infinite alternate;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes move {
+            from { transform: translate(-50%, -50%) translateX(-40px); }
+            to { transform: translate(-50%, -50%) translateX(40px); }
+        }
+        .rainbow-text {
+            font-size: 30px;
+            font-weight: bold;
+            animation: rainbow 1s infinite;
+        }
+        @keyframes rainbow {
+            0% { color: red; }
+            20% { color: orange; }
+            40% { color: yellow; }
+            60% { color: green; }
+            80% { color: blue; }
+            100% { color: violet; }
+        }
+        .floating {
+            position: absolute;
+            font-size: 20px;
+            font-weight: bold;
+            animation: float 4s ease-in-out infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) translateY(0px); }
+            50% { transform: translate(-50%, -50%) translateY(-30px); }
+            100% { transform: translate(-50%, -50%) translateY(0px); }
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn1 {
+            background-color: #04AA6D;
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .btn2 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #f44336;
+            color: white;
+        }
+        .btn3 {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #008CBA; 
+        }
+        .btn4 {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #e7e7e7;
+        }
+        .btn5 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: #008CBA;
+        }
+        .btn6 {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            background-color: #5d00ba;
+        }
+        .btn7 {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            background-color: #3d831d;
+        }
+        .btn8 {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            background-color: #c32626;
+        }
+        .btn9 {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            background-color: #c27a22;
+        }
+        .btn10 {
+            position: absolute;
+            bottom: 20px;
+            right: 100px;
+            background-color: #2315b9;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="blink">WELCOME!</h1>
+    <marquee behavior="alternate" direction="right" scrollamount="20">⚠️ LOOK HERE ⚠️</marquee>
+    <p class="moving-text">[01100110 01101100 01100001 01100111]</p>
+    <p class="rainbow-text">DON'T MISS THIS IMPORTANT MESSAGE!</p>
+    <p class="floating">🔥 THIS TEXT FLOATS 🔥</p>
+    <p class="floating">🎉 ANOTHER FLOATING DISTRACTION 🎉</p>
+    
+    <script>
+        setInterval(() => {
+            alert("Hello there! Click OK to continue!");
+        }, 5000);
+        
+        setTimeout(() => {
+            document.body.style.background = "black";
+            setTimeout(() => {
+                document.body.style.background = "repeating-linear-gradient(45deg, red, yellow 10%, blue 20%)";
+            }, 200);
+        }, 3000);
+    </script>
+</body>
+<div class="container">
+    <button class="btn1" onclick="window.close()">Click Me!</button>
+    <button class="btn2" onclick="window.close()">Click Me!</button>
+    <button class="btn3" id="btn3" onclick="">Click Me!</button>
+    <p id="hiddenText" style="display: none;">aXRje3lvdWdvdGl0fQ==</p>
+    <button class="btn4" onclick="window.close()">Click Me!</button>
+    <button class="btn5" onclick="window.close()">Click Me!</button>
+    <button class="btn6" onclick="window.close()">Click Me!</button>
+    <button class="btn7" onclick="window.close()">Click Me!</button>
+    <button class="btn8" onclick="window.close()">Click Me!</button>
+    <button class="btn9" onclick="window.close()">Click Me!</button>
+    <button class="btn10" onclick="window.close()">Click Me!</button>
+</div>
+<script>
+    document.getElementById("btn3").addEventListener("click", function() {
+        const text = document.getElementById("hiddenText");
+
+        if (text.style.display === "none") {
+            text.style.display = "block"; 
+            this.textContent = "Hide Text"; 
+        } else {
+            text.style.display = "none"; 
+            this.textContent = "Reveal Text"; 
+        }
+    });
+</script>
+
+</html>

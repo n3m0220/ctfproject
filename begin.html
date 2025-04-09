@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #login-form, #redirect-button {
+            display: none;
+        }
+        #login-form {
+            display: block;
+        }
+        input {
+            margin: 10px 0;
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Page</h1>
+
+    <!-- Login Form -->
+    <div id="login-form">
+        <input type="text" id="username" placeholder="Username"><br>
+        <input type="password" id="password" placeholder="Password"><br>
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Redirect Button -->
+    <div id="redirect-button">
+        <h2>Welcome!</h2>
+        <button onclick="redirect()">Go to Another Website</button>
+    </div>
+
+    <script>
+        const encodedUsername = "117115101114"; 
+        const encodedPassword = "11297115115"; 
+
+        function encodeToDecimal(str) {
+            return Array.from(str)
+                .map(char => char.charCodeAt(0)) 
+                .join(""); 
+        }
+
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Encode user input to decimal format
+            const inputUsername = encodeToDecimal(username);
+            const inputPassword = encodeToDecimal(password);
+
+            // Validate against encoded credentials
+            if (inputUsername === encodedUsername && inputPassword === encodedPassword) {
+                document.getElementById("login-form").style.display = "none";
+                document.getElementById("redirect-button").style.display = "block";
+            } else {
+                alert("Invalid username or password!");
+            }
+        }
+
+        function redirect() {
+            window.location.href = "file:///C:/Users/fangi/Downloads/Microsoft%20Visual%20Studio/semester-ctf/final-site.html";
+        }
+    </script>
+</body>
+</html>
